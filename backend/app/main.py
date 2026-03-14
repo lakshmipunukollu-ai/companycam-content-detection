@@ -13,7 +13,7 @@ from app.routers import health, auth, projects, photos, corrections, reports
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # Startup: create tables and upload directory
-    Base.metadata.drop_all(bind=engine)
+    engine.execute("DROP SCHEMA public CASCADE; CREATE SCHEMA public;")
     Base.metadata.create_all(bind=engine)
     os.makedirs(settings.UPLOAD_DIR, exist_ok=True)
     yield
