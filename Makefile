@@ -5,7 +5,7 @@ install:
 	cd backend && pip install -r requirements.txt
 
 dev:
-	cd backend && uvicorn app.main:app --reload --port 8000
+	cd backend && uvicorn app.main:app --reload --port 3008
 
 test:
 	cd backend && python -m pytest tests/ -v --tb=short
